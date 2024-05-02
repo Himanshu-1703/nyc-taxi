@@ -1,0 +1,9 @@
+stages:
+  extract_dataset:
+    cmd: python .\src\data\extract_dataset.py
+    deps:
+      - .\src\data\extract_dataset.py
+      - .\data\raw\zipped
+    outs:
+      - .\data\raw\extracted
+  

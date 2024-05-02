@@ -1,0 +1,20 @@
+schema: '2.0'
+stages:
+  extract_dataset:
+    cmd: python .\src\data\extract_dataset.py
+    deps:
+    - path: .\data\raw\zipped
+      hash: md5
+      md5: 2ac9e57fc0bc2d2a1a610a695529d479.dir
+      size: 87295035
+      nfiles: 2
+    - path: .\src\data\extract_dataset.py
+      hash: md5
+      md5: e13ce767752277added5382c0f74dfe9
+      size: 1711
+    outs:
+    - path: .\data\raw\extracted
+      hash: md5
+      md5: 07dcb976ec534725901d50758a399273.dir
+      size: 271383386
+      nfiles: 2
