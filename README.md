@@ -1,9 +1,27 @@
-NYC-Taxi
+# NYC-Taxi
+
 ==============================
 
 Machine Learning project to predict trip duration for taxis in NYC
 
-Project Organization
+## Important
+
+This code will give error until the project is installed as a package in the environment that has all the dependencies for the project.
+
+After creation of environment and installation of all required packages using pip run this command in the command terminal.
+
+```cmd
+pip install -e .
+```
+
+| This will fix all the import statement errors such as `ModuleNotFoundError` when recreating pipelines using command
+
+```cmd
+dvc repro
+```
+
+## Project Organization
+
 ------------
 
     ├── LICENSE
@@ -51,4 +69,4 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
---------
+------------
