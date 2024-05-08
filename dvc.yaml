@@ -28,15 +28,15 @@ stages:
     outs:
       - .\data\processed\transformations
 
-  # build_features:
-  #   cmd: python .\src\features\build_features.py data/processed/transformations/train.csv data/processed/transformations/val.csv data/processed/transformations/test.csv
-  #   deps:
-  #     - .\src\features\build_features.py
-  #     - .\data\processed\transformations\train.csv
-  #     - .\data\processed\transformations\val.csv
-  #     - .\data\processed\transformations\test.csv
-  #   outs:
-  #     - .\data\processed\build-features    
+  build_features:
+    cmd: python .\src\features\build_features.py data/processed/transformations/train.csv data/processed/transformations/val.csv data/processed/transformations/test.csv
+    deps:
+      - .\src\features\build_features.py
+      - .\data\processed\transformations\train.csv
+      - .\data\processed\transformations\val.csv
+      - .\data\processed\transformations\test.csv
+    outs:
+      - .\data\processed\build-features    
 
   # data_preprocessing:
   #   cmd: python .\src\features\data_preprocessing.py train.csv val.csv test.csv
