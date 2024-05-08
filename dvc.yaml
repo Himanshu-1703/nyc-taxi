@@ -17,3 +17,56 @@ stages:
       - make_dataset.random_state
     outs:
       - .\data\interim
+
+  modify_features:
+    cmd: python .\src\features\modify_features.py data/interim/train.csv data/interim/val.csv data/raw/extracted/test.csv
+    deps:
+      - .\src\features\modify_features.py
+      - .\data\interim\train.csv
+      - .\data\interim\val.csv
+      - .\data\raw\extracted\test.csv
+    outs:
+      - .\data\processed\transformations
+
+  # build_features:
+  #   cmd: python .\src\features\build_features.py data/processed/transformations/train.csv data/processed/transformations/val.csv data/processed/transformations/test.csv
+  #   deps:
+  #     - .\src\features\build_features.py
+  #     - .\data\processed\transformations\train.csv
+  #     - .\data\processed\transformations\val.csv
+  #     - .\data\processed\transformations\test.csv
+  #   outs:
+  #     - .\data\processed\build-features    
+
+  # data_preprocessing:
+  #   cmd: python .\src\features\data_preprocessing.py train.csv val.csv test.csv
+  #   deps:
+  #     - .\src\features\data_preprocessing.py
+  #     - .\data\processed\build-features\train.csv
+  #     - .\data\processed\build-features\val.csv
+  #     - .\data\processed\build-features\test.csv
+  #   params:
+  #     - data_preprocessing.percentiles
+  #   outs:
+  #     - .\data\processed\final
+  #     - .\models\transformers
+
+  # train_model:
+  #   cmd: python .\src\models\train_model.py data/processed/final/train.csv
+  #   deps:
+  #     - .\src\models\train_model.py
+  #     - .\data\processed\final\train.csv
+  #   params:
+  #     - train_model.random_forest_regressor.n_estimators
+  #     - train_model.random_forest_regressor.n_jobs
+  #     - train_model.random_forest_regressor.max_depth
+  #     - train_model.random_forest_regressor.verbose
+  #   outs:
+  #     - .\models\models
+
+  # predict_model:
+  #   cmd: python .\src\models\predict_model.py train.csv val.csv
+  #   deps:
+  #     - .\src\models\predict_model.py
+  #     - .\data\processed\final\val.csv
+  #     - .\models\models
