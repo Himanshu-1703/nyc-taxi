@@ -64,9 +64,9 @@ stages:
     outs:
       - .\models\models
 
-  # predict_model:
-  #   cmd: python .\src\models\predict_model.py train.csv val.csv
-  #   deps:
-  #     - .\src\models\predict_model.py
-  #     - .\data\processed\final\val.csv
-  #     - .\models\models
+  predict_model:
+    cmd: python .\src\models\predict_model.py train.csv val.csv
+    deps:
+      - .\src\models\predict_model.py
+      - .\data\processed\final\val.csv
+      - .\models\models
