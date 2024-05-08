@@ -26,7 +26,7 @@ The CI/CD workflow will throw an error while creating the CML report because no 
 
 I advice the user to generate his/her own access token as explained in the Session-5 and run this code in their own repository and it will work without any errors.
 
-| Thanks everyone for following the content with dedication and patience.👏
+> Thanks everyone for following the content with dedication and patience.👏
 
 ## Project Organization
 
