@@ -51,18 +51,18 @@ stages:
       - .\data\processed\final
       - .\models\transformers
 
-  # train_model:
-  #   cmd: python .\src\models\train_model.py data/processed/final/train.csv
-  #   deps:
-  #     - .\src\models\train_model.py
-  #     - .\data\processed\final\train.csv
-  #   params:
-  #     - train_model.random_forest_regressor.n_estimators
-  #     - train_model.random_forest_regressor.n_jobs
-  #     - train_model.random_forest_regressor.max_depth
-  #     - train_model.random_forest_regressor.verbose
-  #   outs:
-  #     - .\models\models
+  train_model:
+    cmd: python .\src\models\train_model.py data/processed/final/train.csv
+    deps:
+      - .\src\models\train_model.py
+      - .\data\processed\final\train.csv
+    params:
+      - train_model.random_forest_regressor.n_estimators
+      - train_model.random_forest_regressor.n_jobs
+      - train_model.random_forest_regressor.max_depth
+      - train_model.random_forest_regressor.verbose
+    outs:
+      - .\models\models
 
   # predict_model:
   #   cmd: python .\src\models\predict_model.py train.csv val.csv
