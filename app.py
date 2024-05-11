@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from sklearn.pipeline import Pipeline
 import uvicorn
 from data_models import PredictionDataset
-
 import pandas as pd
 import joblib
 from pathlib import Path
