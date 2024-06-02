@@ -57,10 +57,7 @@ stages:
       - .\src\models\train_model.py
       - .\data\processed\final\train.csv
     params:
-      - train_model.random_forest_regressor.n_estimators
-      - train_model.random_forest_regressor.n_jobs
-      - train_model.random_forest_regressor.max_depth
-      - train_model.random_forest_regressor.verbose
+      - train_model.random_forest_regressor
     outs:
       - .\models\models
 
