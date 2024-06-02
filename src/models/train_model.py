@@ -2,6 +2,7 @@ import joblib
 import sys
 import pandas as pd
 from yaml import safe_load
+from xgboost import XGBRegressor
 from sklearn.ensemble import RandomForestRegressor
 from pathlib import Path
 
@@ -48,11 +49,11 @@ def main():
     # split the data into X and y
     X_train, y_train = make_X_y(dataframe=train_data,target_column=TARGET)
     # read the parameters from params.yaml
-    with open('params.yaml') as f:
-        params = safe_load(f)
-    model_params = params['train_model']['random_forest_regressor']
+    # with open('params.yaml') as f:
+    #     params = safe_load(f)
+    # model_params = params['train_model']['random_forest_regressor']
     # make the model object
-    regressor = RandomForestRegressor(**model_params)
+    regressor = XGBRegressor()
     # train the model
     regressor = train_model(model=regressor,
                             X_train=X_train,
@@ -60,7 +61,7 @@ def main():
     # save the model after training
     model_output_path = root_path / 'models' / 'models'
     model_output_path.mkdir(exist_ok=True)
-    save_model(model=regressor,save_path=model_output_path / 'rf.joblib')
+    save_model(model=regressor,save_path=model_output_path / 'xgbreg.joblib')
     
     
 if __name__ == "__main__":

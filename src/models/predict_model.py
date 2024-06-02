@@ -6,7 +6,7 @@ from sklearn.metrics import r2_score
 
 
 TARGET = 'trip_duration'
-model_name = 'rf.joblib'
+model_name = 'xgbreg.joblib'
 
 def load_dataframe(path):
     df = pd.read_csv(path)
