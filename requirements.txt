@@ -4,3 +4,4 @@ scikit-learn
 uvicorn
 fastapi
 joblib
+xgboost
