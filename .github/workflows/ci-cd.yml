@@ -29,7 +29,7 @@ jobs:
 
       - name: Create CML Report
         env:
-          REPO_TOKEN: ${{ secrets.CML_SECRET }} 
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         run: |
           echo "# Model Evalutaion Results" >> report.md
           echo "## Bar Graph of Results" >> report.md
@@ -74,7 +74,7 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
   
-          
+
   # Continuous-Deployment:
   #   runs-on: self-hosted
   #   needs: build-and-push-ecr-image
