@@ -70,3 +70,13 @@ stages:
       - .\src\models\predict_model.py
       - .\data\processed\final\val.csv
       - .\models\models
+
+  plot_results:
+    cmd: python .\src\visualization\plot_results.py train.csv val.csv
+    deps:
+      - .\src\visualization\plot_results.py
+      - .\data\processed\final\train.csv
+      - .\data\processed\final\val.csv
+      - .\models\models
+    outs:
+      - .\plots\model_results\
