@@ -60,7 +60,7 @@ jobs:
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
   
   Continuous-Deployment:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build-and-push-ecr-image
     steps:
       - name: Configure AWS credentials
