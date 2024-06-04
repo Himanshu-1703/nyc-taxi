@@ -23,7 +23,7 @@ jobs:
                 python -m pip install --upgrade pip
                 pip install -r requirements-actions.txt
 
-            - name: Create CML Report
+            - name: Create CML Report/Graphs
               env:
                 REPO_TOKEN: ${{ secrets.CML_TOKEN }} 
               run: |
