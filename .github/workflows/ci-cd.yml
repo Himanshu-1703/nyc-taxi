@@ -88,8 +88,12 @@ jobs:
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       
       - name: Delete Previous Container on EC2
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
+          IMAGE_TAG: latest
         run: |
-          docker rm -f trip-duration || true
+          docker rm -f $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG || true
 
       - name: Run Docker Image to serve users
         env:
