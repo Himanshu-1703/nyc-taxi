@@ -10,7 +10,7 @@ app = FastAPI()
 
 current_file_path = Path(__file__).parent
 
-model_path = current_file_path / "models" / "models" / "xgbreg.joblib"
+model_path = current_file_path / "container_models" / "models" / "xgbreg.joblib"
 preprocessor_path = model_path.parent.parent / "transformers" / "preprocessor.joblib"
 output_transformer_path = preprocessor_path.parent / "output_transformer.joblib"
 

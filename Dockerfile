@@ -42,7 +42,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 USER appuser
 
 # Copy the source code into the container.
-COPY ./models/ ./models/
+COPY ./container_models/ ./container_models/
 COPY app.py .
 COPY data_models.py .
 COPY requirements.txt .
