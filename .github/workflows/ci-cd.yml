@@ -84,7 +84,9 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker login -u AWS -p $(aws ecr get-login-password --region $AWS_REGION) $ECR_REGISTRY
-          docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "$ECR_REGISTRY"
+          
+        # docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       
       # - name: Delete Previous Container on EC2
       #   run: |
