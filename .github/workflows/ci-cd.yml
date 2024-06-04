@@ -82,11 +82,11 @@ jobs:
         run: |
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       
-      - name: Delete Previous Container
-        run: |
-          docker rm -f trip-duration || true
+      # - name: Delete Previous Container
+      #   run: |
+      #     docker rm -f trip-duration || true
 
-      - name: Run Docker Image to serve users
-        run: |
-          docker run -d -p 8000:8000 --ipc="host" --name=trip-duration -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+      # - name: Run Docker Image to serve users
+      #   run: |
+      #     docker run -d -p 8000:8000 --ipc="host" --name=trip-duration -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
       
